@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const ContentWrapper = styled.main`
 	width: 100%;
@@ -7,10 +7,43 @@ export const ContentWrapper = styled.main`
 
 // Header
 
-export const Header = styled.header`
+export const HeaderElement = styled.header`
 	background-color: #24292e;
 	width: 100%;
 	height: 60px;
+`;
+
+export const Form = styled.form`
+	width: 30%;
+	height: 100%;
+	margin-left: 15px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const Input = styled.input`
+	width: 80%;
+	border: none;
+	background-color: rgb(48, 52, 56);
+	padding: 5px;
+	color: #d1d5da;
+	border-radius: 5px;
+
+	&:focus {
+		outline: none;
+		background-color: #fff;
+		color: gray;
+	}
+`;
+
+export const Button = styled.button`
+	width: 70px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	margin-left: 10px;
 `;
 
 // Users

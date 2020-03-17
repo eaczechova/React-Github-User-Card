@@ -2,8 +2,7 @@ import React from 'react';
 import Followers from './Followers.js';
 import { UsersWrapper, Nav, Link } from './styles';
 
-function Users(props) {
-	console.log(props.user);
+function GitHubFollowers(props) {
 	return (
 		<UsersWrapper>
 			<Nav>
@@ -15,4 +14,4 @@ function Users(props) {
 		</UsersWrapper>
 	);
 }
-export default Users;
+export default GitHubFollowers;

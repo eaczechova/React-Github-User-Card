@@ -1,47 +1,84 @@
 import React from 'react';
 import './App.css';
+import Header from './Header';
 import MyAccount from './components/MyAccount';
-import Users from './components/Users';
-import Followers from './components/Followers';
-import { Header, ContentWrapper } from './components/styles';
+import GitHubFollowers from './components/Users';
+import { ContentWrapper } from './components/styles';
 
 class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			user: [],
-			followers: []
+			followers: [],
+			login: 'eaczechova',
+			searchInput: ''
 		};
 	}
 
-	componentDidMount() {
-		fetch('https://api.github.com/users/eaczechova')
+	fetchMyCard = login => {
+		fetch(`https://api.github.com/users/${login}`)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
+				console.log('user data', data);
 				this.setState({ user: data });
 			})
 			.catch(err => console.error(err));
+	};
 
-		fetch('https://api.github.com/users/eaczechova/followers')
+	fetchMyGithubFollowers = login => {
+		fetch(`https://api.github.com/users/${login}/followers`)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
+				console.log('followersdata ', data);
 				this.setState({ followers: data });
 			})
 			.catch(err => console.error(err));
+	};
+
+	handleChange = e => {
+		this.setState({ searchInput: e.target.value });
+	};
+
+	handleSearch = e => {
+		e.preventDefault();
+		let search = this.state.followers.filter(follower =>
+			follower.login.toLowerCase().includes(this.state.searchInput.toLowerCase())
+		);
+		if (search.length > 0) {
+			this.setState({
+				login: search[0].login
+			});
+		}
+	};
+
+	componentDidMount() {
+		this.fetchMyCard(this.state.login);
+		this.fetchMyGithubFollowers(this.state.login);
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevState.login !== this.state.login) {
+			this.fetchMyCard(this.state.login);
+			this.fetchMyGithubFollowers(this.state.login);
+		}
 	}
 
 	render() {
 		return (
 			<div>
-				<Header />
+				<Header
+					handleChange={this.handleChange}
+					searchInput={this.state.searchInput}
+					handleSearch={this.handleSearch}
+				/>
 				<ContentWrapper>
 					<MyAccount user={this.state.user} />
-					<Users followers={this.state.followers} />
+					<GitHubFollowers followers={this.state.followers} />
 				</ContentWrapper>
 			</div>
 		);
 	}
 }
+
 export default App;

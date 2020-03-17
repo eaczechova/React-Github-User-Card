@@ -5,7 +5,7 @@ function Followers(props) {
 	return (
 		<div>
 			{props.followers.map(user => (
-				<UserCard>
+				<UserCard key={user.id}>
 					<User>
 						<UserImage src={user.avatar_url} />
 					</User>
