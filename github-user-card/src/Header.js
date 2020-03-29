@@ -1,15 +1,15 @@
 import React from 'react';
 import { HeaderElement, Form, Input, Button } from './components/styles';
 
-function Header(props) {
+function Header({ handleSearch, handleChange, searchInput }) {
 	return (
 		<HeaderElement>
-			<Form onSubmit={props.handleSearch}>
+			<Form onSubmit={handleSearch}>
 				<Input
 					type="text"
-					onChange={props.handleChange}
+					onChange={handleChange}
 					placeholder="Search..."
-					value={props.searchInput}
+					value={searchInput}
 				/>
 				<Button>Search</Button>
 			</Form>

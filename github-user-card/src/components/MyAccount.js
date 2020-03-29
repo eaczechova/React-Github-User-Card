@@ -1,19 +1,19 @@
 import React from 'react';
 import { CardWrapper, Division, Image, Card, List, ListItem } from './styles';
 
-function MyAccount(props) {
+function MyAccount({ user }) {
 	return (
 		<CardWrapper>
 			<Card>
 				<Division>
-					<Image src={props.user.avatar_url} alt="profile" />
+					<Image src={user.avatar_url} alt="profile" />
 				</Division>
 				<Division>
 					<List>
-						<ListItem>{props.user.name}</ListItem>
-						<ListItem>{props.user.login}</ListItem>
-						<ListItem>{props.user.bio}</ListItem>
-						<ListItem>{props.user.location}</ListItem>
+						<ListItem>{user.name}</ListItem>
+						<ListItem>{user.login}</ListItem>
+						<ListItem>{user.bio}</ListItem>
+						<ListItem>{user.location}</ListItem>
 					</List>
 				</Division>
 			</Card>

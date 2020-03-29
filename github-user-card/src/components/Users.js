@@ -2,15 +2,13 @@ import React from 'react';
 import Followers from './Followers.js';
 import { UsersWrapper, Nav, Link } from './styles';
 
-function GitHubFollowers(props) {
+function GitHubFollowers({ followers }) {
 	return (
 		<UsersWrapper>
 			<Nav>
-				<Link>
-					Followers<span></span>
-				</Link>
+				<Link>Followers</Link>
 			</Nav>
-			<Followers followers={props.followers}></Followers>
+			<Followers followers={followers}></Followers>
 		</UsersWrapper>
 	);
 }

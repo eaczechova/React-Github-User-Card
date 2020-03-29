@@ -44,6 +44,11 @@ export const Button = styled.button`
 	border: none;
 	border-radius: 5px;
 	margin-left: 10px;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
 `;
 
 // Users
@@ -57,6 +62,14 @@ export const Nav = styled.nav`
 `;
 
 export const Link = styled.a``;
+
+export const ChartWrapper = styled.div`
+	width: 300px;
+`;
+
+export const ChartImg = styled.img`
+	text-align: center;
+`;
 
 // Card
 
@@ -72,9 +85,6 @@ export const Card = styled.div`
 
 export const Division = styled.div`
 	width: 50%;
-	&:last-child {
-		width: 80%;
-	}
 `;
 
 export const Image = styled.img`
@@ -86,7 +96,7 @@ export const Image = styled.img`
 
 export const List = styled.ul`
 	list-style: none;
-	padding: 0;
+	padding: 0 0 0 40px;
 `;
 
 export const ListItem = styled.li`
@@ -108,10 +118,11 @@ export const Span = styled.span`
 `;
 
 export const UsersWrapper = styled.section`
-	width: 65%;
+	width: 100%;
 `;
 
 export const UserCard = styled.div`
+	width: 100%;
 	list-style: none;
 	padding: 20px 5px;
 	display: flex;

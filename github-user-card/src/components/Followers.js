@@ -1,23 +1,23 @@
 import React from 'react';
 import { UserCard, UserImage, User } from './styles';
 
-function Followers(props) {
+function Followers({ followers }) {
 	return (
-		<div>
-			{props.followers.map(user => (
-				<UserCard key={user.id}>
+		<>
+			{followers.map(follower => (
+				<UserCard key={follower.id}>
 					<User>
-						<UserImage src={user.avatar_url} />
+						<UserImage src={follower.avatar_url} />
 					</User>
 					<div>
-						<User>{user.login}</User>
+						<User>{follower.login}</User>
 						<User>
-							<a href={user.html_url}>{user.html_url}</a>
+							<a href={follower.html_url}>{follower.html_url}</a>
 						</User>
 					</div>
 				</UserCard>
 			))}
-		</div>
+		</>
 	);
 }
 

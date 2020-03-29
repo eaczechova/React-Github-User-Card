@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from './Header';
 import MyAccount from './components/MyAccount';
+import Chart from './components/Chart';
 import GitHubFollowers from './components/Users';
-import { ContentWrapper } from './components/styles';
+import { ContentWrapper, Division } from './components/styles';
 
 class App extends React.Component {
 	constructor() {
@@ -20,7 +21,6 @@ class App extends React.Component {
 		fetch(`https://api.github.com/users/${login}`)
 			.then(res => res.json())
 			.then(data => {
-				console.log('user data', data);
 				this.setState({ user: data });
 			})
 			.catch(err => console.error(err));
@@ -66,7 +66,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<main>
 				<Header
 					handleChange={this.handleChange}
 					searchInput={this.state.searchInput}
@@ -74,9 +74,12 @@ class App extends React.Component {
 				/>
 				<ContentWrapper>
 					<MyAccount user={this.state.user} />
-					<GitHubFollowers followers={this.state.followers} />
+					<Division>
+						<Chart user={this.state.user} />
+						<GitHubFollowers followers={this.state.followers} />
+					</Division>
 				</ContentWrapper>
-			</div>
+			</main>
 		);
 	}
 }
