@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const ContentWrapper = styled.main`
 	width: 100%;
+	margin: 0;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden;
 	@media (min-width: 768px) {
 		flex-direction: row;
 	}
@@ -20,7 +22,6 @@ export const HeaderElement = styled.header`
 export const Form = styled.form`
 	width: 100%;
 	height: 100%;
-
 	display: flex;
 	justify-content: flex-center;
 	align-items: center;
@@ -74,12 +75,13 @@ export const Nav = styled.nav`
 export const Link = styled.a``;
 
 export const ChartWrapper = styled.div`
-	width: 100%;
+	width: 98%;
+	margin: 0 auto;
 	text-align: center;
 `;
 
 export const ChartImg = styled.img`
-	width: 90%;
+	width: 95%;
 
 	@media (min-width: 768px) {
 		width: 100%;
