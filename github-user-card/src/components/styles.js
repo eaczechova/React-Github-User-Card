@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const ContentWrapper = styled.main`
 	width: 100%;
 	display: flex;
+	flex-direction: column;
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
 `;
 
 // Header
@@ -14,22 +18,27 @@ export const HeaderElement = styled.header`
 `;
 
 export const Form = styled.form`
-	width: 30%;
+	width: 100%;
 	height: 100%;
-	margin-left: 15px;
 
 	display: flex;
-	justify-content: center;
+	justify-content: flex-center;
 	align-items: center;
+
+	@media (min-width: 768px) {
+		width: 30%;
+		justify-content: flex-start;
+	}
 `;
 
 export const Input = styled.input`
-	width: 80%;
+	width: 60%;
 	border: none;
 	background-color: rgb(48, 52, 56);
 	padding: 5px;
 	color: #d1d5da;
 	border-radius: 5px;
+	margin: 0 auto;
 
 	&:focus {
 		outline: none;
@@ -43,8 +52,9 @@ export const Button = styled.button`
 	padding: 5px;
 	border: none;
 	border-radius: 5px;
-	margin-left: 10px;
+	margin: 0 auto;
 	cursor: pointer;
+	background: white;
 
 	&:focus {
 		outline: none;
@@ -64,27 +74,43 @@ export const Nav = styled.nav`
 export const Link = styled.a``;
 
 export const ChartWrapper = styled.div`
-	width: 300px;
+	width: 100%;
+	text-align: center;
 `;
 
 export const ChartImg = styled.img`
-	text-align: center;
+	width: 90%;
+
+	@media (min-width: 768px) {
+		width: 100%;
+	}
 `;
 
 // Card
 
 export const CardWrapper = styled.section`
-	width: 35%;
+	width: 100%;
+
+	@media (min-width: 768px) {
+		width: 30%;
+		justify-content: flex-start;
+	}
 `;
 
 export const Card = styled.div`
 	display: flex;
+	width: 100%;
+
 	padding: 10px;
 	flex-direction: column;
 `;
 
 export const Division = styled.div`
-	width: 50%;
+	width: 100%;
+
+	@media (min-width: 768px) {
+		width: 50%;
+	}
 `;
 
 export const Image = styled.img`
